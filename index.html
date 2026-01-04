@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vannes Express | Transport Médical & Frigorifique en Bretagne</title>
+    <meta name="description" content="Transport express sous température dirigée. Spécialiste du transport médical urgent et frigorifique en Bretagne, France et Europe. Disponible 24h/24.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafafa;
+            --bg-white: #ffffff;
+            --bg-dark: #0a0a0a;
+            --text: #0a0a0a;
+            --text-light: #555555;
+            --text-white: #ffffff;
+            --accent: #0066ff;
+            --accent-light: #e8f1ff;
+            --medical: #dc2626;
+            --frigo: #0091ff;
+            --border: #e5e5e5;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 12px 20px;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 8px 8px 8px 20px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            background: var(--bg-dark);
+            color: var(--text-white);
+            padding: 10px 20px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-mobile {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 20px 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e8f1ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 450px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 24px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--bg-dark);
+            color: var(--text-white);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--bg-white);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text);
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        /* Stats */
+        .stats {
+            background: var(--bg-dark);
+            padding: 50px 20px;
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-white);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 6px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 6px 12px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Expertise */
+        .expertise-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .expertise-card {
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expertise-card.medical {
+            background: linear-gradient(135deg, #1a0000 0%, #2d0a0a 100%);
+        }
+
+        .expertise-card.frigo {
+            background: linear-gradient(135deg, #001a2d 0%, #002d4a 100%);
+        }
+
+        .expertise-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+        }
+
+        .expertise-card.medical .expertise-icon {
+            background: rgba(220,38,38,0.2);
+        }
+
+        .expertise-card.frigo .expertise-icon {
+            background: rgba(0,145,255,0.2);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 12px;
+        }
+
+        .expertise-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .expertise-tag {
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .expertise-card.medical .expertise-tag {
+            background: rgba(220,38,38,0.2);
+            color: #fca5a5;
+        }
+
+        .expertise-card.frigo .expertise-tag {
+            background: rgba(0,145,255,0.2);
+            color: #7dd3fc;
+        }
+
+        /* Fleet */
+        .fleet {
+            background: var(--bg-white);
+        }
+
+        .fleet-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            grid-template-rows: 200px 200px;
+            gap: 16px;
+        }
+
+        .fleet-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: #e5e5e5;
+        }
+
+        .fleet-item:first-child {
+            grid-row: span 2;
+        }
+
+        .fleet-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .fleet-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .fleet-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .fleet-item:hover .fleet-overlay {
+            opacity: 1;
+        }
+
+        .fleet-overlay h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .fleet-overlay p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+        }
+
+        /* Services */
+        .services-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Trust */
+        .trust {
+            background: var(--bg-dark);
+        }
+
+        .trust .section-label {
+            background: rgba(0,145,255,0.2);
+            color: var(--frigo);
+        }
+
+        .trust .section-title {
+            color: var(--text-white);
+        }
+
+        .trust .section-subtitle {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .trust-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .trust-item:hover .trust-icon {
+            background: rgba(0,145,255,0.1);
+            border-color: rgba(0,145,255,0.3);
+        }
+
+        .trust-item h3 {
+            color: var(--text-white);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .trust-item p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        /* Contact */
+        .contact-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .contact-info > p {
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--bg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            font-size: 0.95rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .urgence-banner {
+            background: var(--medical);
+            border-radius: var(--radius);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .urgence-banner h4 {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .urgence-banner p {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .contact-form {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+        }
+
+        .contact-form h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--bg-dark);
+            color: var(--text-white);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #222;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            margin-bottom: 12px;
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        .footer h4 {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer ul a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer ul a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-mobile {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                margin: 0 auto 32px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                display: flex;
+                justify-content: center;
+                margin-top: 40px;
+            }
+
+            .hero-image img {
+                max-width: 400px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fleet-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .fleet-item:first-child {
+                grid-row: span 1;
+            }
+
+            .fleet-item {
+                height: 220px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                gap: 24px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="img/logo.jpg" alt="Vannes Express">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#expertise">Expertises</a></li>
+                <li><a href="#flotte">Flotte</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Demander un devis</a>
+            <button class="nav-mobile">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Disponible 24h/24 · 7j/7
+                </div>
+                <h1>Transport express<br><span>sous température dirigée</span></h1>
+                <p class="hero-subtitle">Spécialiste du transport médical urgent et frigorifique en Bretagne. Réactivité, traçabilité et respect de la chaîne du froid depuis 2003.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Demander un devis →</a>
+                    <a href="tel:0297457514" class="btn btn-secondary">📞 02 97 45 75 14</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="img/flotte-principale.jpeg" alt="Flotte Vannes Express">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">+20</div>
+                <div class="stat-label">Années d'expérience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">20</div>
+                <div class="stat-label">Véhicules équipés</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Disponibilité</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Traçabilité</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section class="section" id="expertise">
+        <div class="section-header">
+            <span class="section-label">Nos expertises</span>
+            <h2 class="section-title">Deux métiers, une exigence</h2>
+            <p class="section-subtitle">Transport médical et frigorifique avec le même niveau d'excellence.</p>
+        </div>
+        <div class="expertise-grid">
+            <div class="expertise-card medical">
+                <div class="expertise-icon">🏥</div>
+                <h3>Transport Médical</h3>
+                <p>Acheminement urgent de produits biologiques, échantillons, médicaments dans le respect des normes sanitaires.</p>
+                <div class="expertise-tags">
+                    <span class="expertise-tag">Urgence 24h/24</span>
+                    <span class="expertise-tag">Prélèvements</span>
+                    <span class="expertise-tag">Pharmaceutique</span>
+                </div>
+            </div>
+            <div class="expertise-card frigo">
+                <div class="expertise-icon">❄️</div>
+                <h3>Transport Frigorifique</h3>
+                <p>Acheminement de produits frais et surgelés avec respect total de la chaîne du froid, de -25°C à +8°C.</p>
+                <div class="expertise-tags">
+                    <span class="expertise-tag">-25°C à +8°C</span>
+                    <span class="expertise-tag">Produits frais</span>
+                    <span class="expertise-tag">Surgelés</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet -->
+    <section class="section fleet" id="flotte">
+        <div class="section-header">
+            <span class="section-label">Notre flotte</span>
+            <h2 class="section-title">20 véhicules à votre service</h2>
+        </div>
+        <div class="fleet-grid">
+            <div class="fleet-item">
+                <img src="img/flotte-poids-lourds.jpeg" alt="Poids lourds">
+                <div class="fleet-overlay">
+                    <h3>Poids Lourds</h3>
+                    <p>Transport longue distance France & Europe</p>
+                </div>
+            </div>
+            <div class="fleet-item">
+                <img src="img/vehicules-rapides.jpeg" alt="Véhicules rapides">
+                <div class="fleet-overlay">
+                    <h3>Véhicules Rapides</h3>
+                    <p>Interventions urgentes 24h/24</p>
+                </div>
+            </div>
+            <div class="fleet-item">
+                <img src="img/locaux.png" alt="Nos locaux">
+                <div class="fleet-overlay">
+                    <h3>Notre Base</h3>
+                    <p>Saint-Avé, Bretagne</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <span class="section-label">Nos services</span>
+            <h2 class="section-title">Solutions sur-mesure</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Course Urgente</h3>
+                <p>Livraison express taxi-colis 24h/24 partout en France et Europe.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚛</div>
+                <h3>Location avec Chauffeur</h3>
+                <p>Mise à disposition de véhicules frigorifiques avec conducteur.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔄</div>
+                <h3>Tournées Dédiées</h3>
+                <p>Solutions logistiques sur-mesure pour vos livraisons régulières.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="section trust">
+        <div class="section-header">
+            <span class="section-label">Pourquoi nous</span>
+            <h2 class="section-title">La confiance depuis 2003</h2>
+            <p class="section-subtitle">Plus de 20 ans d'expertise au service de la chaîne du froid.</p>
+        </div>
+        <div class="trust-grid">
+            <div class="trust-item">
+                <div class="trust-icon">⚡</div>
+                <h3>Réactivité</h3>
+                <p>Intervention en moins de 30 minutes</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🛡️</div>
+                <h3>Fiabilité</h3>
+                <p>Équipements certifiés, suivi GPS</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🎯</div>
+                <h3>Expertise</h3>
+                <p>Chauffeurs formés aux exigences</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">📊</div>
+                <h3>Traçabilité</h3>
+                <p>Relevés température, reporting</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Parlons de votre projet</h2>
+                <p>Une question, un devis, une urgence ? Notre équipe est disponible.</p>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>2 Rue Marguerite Perey, 56890 Saint-Avé</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">📞</div>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <a href="tel:0297457514">02 97 45 75 14</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">✉️</div>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:contact@vannesexpress.com">contact@vannesexpress.com</a>
+                    </div>
+                </div>
+                
+                <div class="urgence-banner">
+                    <span style="font-size: 2rem;">🚨</span>
+                    <div>
+                        <h4>Urgence médicale 24h/24</h4>
+                        <p>02 97 45 75 14</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Demander un devis</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nom complet</label>
+                            <input type="text" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Entreprise</label>
+                            <input type="text" placeholder="Votre entreprise">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="vous@exemple.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Téléphone</label>
+                            <input type="tel" placeholder="06 00 00 00 00" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Type de service</label>
+                        <select required>
+                            <option value="">Sélectionnez un service</option>
+                            <option value="medical">Transport médical urgent</option>
+                            <option value="frigo">Transport frigorifique</option>
+                            <option value="location">Location avec chauffeur</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea placeholder="Décrivez votre besoin..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Envoyer ma demande</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="img/logo.jpg" alt="Vannes Express">
+                <p>Spécialiste du transport express sous température dirigée depuis 2003.</p>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#expertise">Expertises</a></li>
+                    <li><a href="#flotte">Flotte</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#expertise">Transport médical</a></li>
+                    <li><a href="#expertise">Transport frigo</a></li>
+                    <li><a href="#services">Location véhicule</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0297457514">02 97 45 75 14</a></li>
+                    <li><a href="mailto:contact@vannesexpress.com">Email</a></li>
+                    <li>Saint-Avé, Bretagne</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Vannes Express · Tous droits réservés</p>
+            <p>SARL au capital de 128 980 € · SIRET 792 834 707</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre demande ! Nous vous recontacterons rapidement.');
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
